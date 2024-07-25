@@ -30,4 +30,4 @@ This portfolio website includes:
 
 ## Link
 
-- **https://padmanjalich.github.io/**
+Check out my [portfolio](https://padmanjalich.github.io/)
