@@ -535,9 +535,6 @@
         <div class="text-center"><button type="submit">Send Message</button></div>
       </form>
       <script>
-        (function() {
-          emailjs.init("7snzFQLiHt5lbXtLg");
-         })();
         document.getElementById('contact-form').addEventListener('submit', function(event) {
                 event.preventDefault();
                 const formData = {
@@ -564,31 +561,11 @@
 
 <!-- Email JS file-->
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("7snzFQLiHt5lbXtLg");
-   })();
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-          event.preventDefault();
-          const formData = {
-            name: this.name.value,
-            email: this.email.value,
-            subject: this.subject.value,
-            message: this.message.value
-          };
-
-          emailjs.sendForm('service_a2lg0gb', 'template_k34s6sg', formData)
-            .then(function(response) {
-              console.log('Sent successfully', response);
-              document.querySelector('.sent-message').style.display = 'block';
-              document.getElementById('contact-form').reset();
-            }, function(error) {
-              console.log('Failed to send', error);
-              document.querySelector('.error-message').textContent = 'Failed to send message. Please try again.';
-              document.querySelector('.error-message').style.display = 'block';
-            });
-        });
-</script>
+  <script>
+    (function() {
+      emailjs.init("7snzFQLiHt5lbXtLg");
+     })();
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
