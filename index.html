@@ -512,7 +512,7 @@
 
       </div>
 
-      <form id="contact-form" role="form" class="php-email-form mt-4">
+      <form id="contact-form" action="#" method="POST" role="form" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -534,9 +534,16 @@
         </div>
         <div class="text-center"><button type="submit">Send Message</button></div>
       </form>
+    </div>
+  </section><!-- End Contact Section -->
 
-      <script>
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
+<!-- Email JS file-->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("7snzFQLiHt5lbXtLg");
+   })();
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
           event.preventDefault();
           const formData = {
             name: this.name.value,
@@ -556,16 +563,6 @@
               document.querySelector('.error-message').style.display = 'block';
             });
         });
-      </script>
-    </div>
-  </section><!-- End Contact Section -->
-
-<!-- Email JS file-->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("7snzFQLiHt5lbXtLg");
-  })();
 </script>
 
   <!-- Vendor JS Files -->
