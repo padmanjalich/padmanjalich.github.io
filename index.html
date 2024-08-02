@@ -512,7 +512,7 @@
 
       </div>
 
-      <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
+      <form id="contact-form" role="form" class="php-email-form mt-4">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -535,9 +535,31 @@
         <div class="text-center"><button type="submit">Send Message</button></div>
       </form>
 
+      <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+          emailjs.sendForm('service_a2lg0gb', 'template_ozz2uip', this)
+            .then(function(response) {
+              console.log('Sent successfully', response);
+              document.querySelector('.sent-message').style.display = 'block';
+              document.getElementById('contact-form').reset();
+            }, function(error) {
+              console.log('Failed to send', error);
+              document.querySelector('.error-message').textContent = 'Failed to send message. Please try again.';
+              document.querySelector('.error-message').style.display = 'block';
+            });
+        });
+      </script>
     </div>
   </section><!-- End Contact Section -->
 
+<!-- Email JS file-->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("service_a2lg0gb");
+  })();
+</script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
