@@ -538,7 +538,14 @@
       <script>
         document.getElementById('contact-form').addEventListener('submit', function(event) {
           event.preventDefault();
-          emailjs.sendForm('service_a2lg0gb', 'template_ozz2uip', this)
+          const formData = {
+            name: this.name.value,
+            email: this.email.value,
+            subject: this.subject.value,
+            message: this.message.value
+          };
+
+          emailjs.sendForm('service_a2lg0gb', 'template_k34s6sg', formData)
             .then(function(response) {
               console.log('Sent successfully', response);
               document.querySelector('.sent-message').style.display = 'block';
